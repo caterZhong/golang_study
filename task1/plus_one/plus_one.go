@@ -15,30 +15,6 @@ func plusOne(digits []int) []int {
 	}
 	return append([]int{1}, digits[0:]...)
 
-	// for _, v := range digits {
-	// 	num = num*10 + v
-	// }
-
-	// num++
-	// var result []int = []int{}
-	// var i int = 0
-	// for {
-
-	// 	digit := num % 10
-	// 	num = num / 10
-	// 	if len(result) == 0 {
-	// 		result = append(result, digit)
-	// 	} else {
-	// 		result = append([]int{digit}, result[0:]...)
-	// 	}
-
-	// 	i++||~|
-	// 	if num == 0 {
-	// 		break
-	// 	}
-
-	// }
-	// return result
 }
 
 func main() {
