@@ -47,8 +47,4 @@ func main() {
 
 	intervals := [][]int{{8, 10}, {1, 3}, {2, 6}, {15, 18}}
 	fmt.Println(merge(intervals))
-	// fmt.Print	ln(intervals[:])
-	// fmt.Println(intervals[3:])
-
-	// i2 < j1
 }
