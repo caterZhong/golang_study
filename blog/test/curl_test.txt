@@ -1,0 +1,98 @@
+1、登录
+
+curl --request POST \
+  --url http://localhost:8080/pub/user/login \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "email":"test@163.com",
+    "password":"test@163.com"
+}'
+
+
+后续认证header注意更换为登录后获取到的token
+
+2、发布文章
+curl --request POST \
+  --url http://localhost:8080/pri/post/createPost \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAMTYzLmNvbSIsImV4cCI6MTc2MTUzMTExOCwibmJmIjoxNzYxNTI5MzE4LCJpYXQiOjE3NjE1MjkzMTh9.mAGeIuNj5Us1C-0Jlu56BgJRVLJ6qoez9U2vTh8rx8s' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "title":"testTitle4",
+    "content":"testContent4"
+}'
+
+3、查询文章列表
+curl --request GET \
+  --url 'http://localhost:8080/pub/post/pagePost?pageNo=1&pageSize=10' \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "title":"testTitle",
+    "content":"testContent"
+}'
+
+4、修改文章
+curl --request POST \
+  --url http://localhost:8080/pri/post/updatePost \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAMTYzLmNvbSIsImV4cCI6MTc2MTUzMTExOCwibmJmIjoxNzYxNTI5MzE4LCJpYXQiOjE3NjE1MjkzMTh9.mAGeIuNj5Us1C-0Jlu56BgJRVLJ6qoez9U2vTh8rx8s' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "title":"testTitle-1",
+    "content":"testContent-1",
+    "id": 2
+}'
+
+5、删除文章
+curl --request POST \
+  --url http://localhost:8080/pri/post/delPost \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAMTYzLmNvbSIsImV4cCI6MTc2MTUzMTExOCwibmJmIjoxNzYxNTI5MzE4LCJpYXQiOjE3NjE1MjkzMTh9.mAGeIuNj5Us1C-0Jlu56BgJRVLJ6qoez9U2vTh8rx8s' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "id": 2
+}'
+
+6、查询文章评论
+curl --request GET \
+  --url 'http://localhost:8080/pub/comment/getPostComment?postId=4' \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "title":"testTitle",
+    "content":"testContent"
+}'
+
+7、发布评论
+curl --request POST \
+  --url http://localhost:8080/pri/comment/createComment \
+  --header 'Accept: */*' \
+  --header 'Accept-Encoding: gzip, deflate, br' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAMTYzLmNvbSIsImV4cCI6MTc2MTUzNjA0NSwibmJmIjoxNzYxNTM0MjQ1LCJpYXQiOjE3NjE1MzQyNDV9.YftSzlUmMxET93F0kBfbn76scsptqhfDbFfdYoVpK4Y' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: PostmanRuntime-ApipostRuntime/1.1.0' \
+  --data '{
+    "post_id":4,
+    "content":"testContent"
+}'

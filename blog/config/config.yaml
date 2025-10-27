@@ -1,0 +1,27 @@
+
+server:
+  port: "8080"
+  env: "dev"
+
+database:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "root"
+  dbname: "go_lang_study"
+  max_open_conns: 20
+  max_idle_conns: 5
+  conn_max_lifetime: "30m"
+
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+  dial_timeout: "5s"
+
+jwt:
+  secret: "your-256-bit-secreht"
+  expires_time: 30m
+  refresh_expire: 2h
